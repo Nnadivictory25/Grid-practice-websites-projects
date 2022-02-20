@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 39px;
+}
+
+[class ^= "box-"] {
+    display: grid;
+    place-items: center;
+    border: solid 5px orangered;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    color: #fff;
+}
+
+body {
+    background: linear-gradient(lightblue, blue);
+    height: 100vh;
+}
+
+.beginner {
+    height: 90vh;
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+}
