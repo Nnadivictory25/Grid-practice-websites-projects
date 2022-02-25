@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Dosis', sans-serif;
+}
+
+/* 
+===============
+CSS STYLES (OUTER GRID STYLING)
+===============
+ */
+
+ .outer-grid {
+     display: grid;
+     height: 100vh;
+     grid-template-rows: 70px 1fr;
+     grid-template-columns: 90px 1fr;
+     grid-template-areas: 
+      "alias-header alias-header"
+      "alias-innergrid alias-innergrid"
+      ;
+ }
+
+ .outer-grid-expanded {
+    grid-template-areas: 
+    "alias-header alias-header"
+    "alias-nav alias-innergrid"
+    ;
+ }
+
+.hide-nav{
+    display: none;
+}
+
+ header {
+    grid-area: alias-header;
+    background: rgba(0, 31, 255, 0.5) ;
+ }
+
+ nav {
+    grid-area: alias-nav;
+    background: rgba(0, 31, 255, 0.8) ;
+ }
+
+ .inner-grid {
+    grid-area: alias-innergrid;
+    background: rgba(0, 31, 255, 0.2) ;
+ }
+
+ /* 
+===============
+BREAKPOINTS 
+===============
+ */
