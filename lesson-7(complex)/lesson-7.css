@@ -8,6 +8,14 @@
 
 html {
     font-family: 'Dosis', sans-serif;
+    color: #1e4040;
+}
+
+header,
+footer,
+a {
+   background-color: #1e4040;
+   color: #71dd9e;
 }
 
 /* 
@@ -40,7 +48,6 @@ CSS STYLES (OUTER GRID STYLING)
 
  header {
     grid-area: alias-header;
-    background: rgba(0, 31, 255, 0.5) ;
  }
 
  nav {
@@ -48,13 +55,122 @@ CSS STYLES (OUTER GRID STYLING)
     background: rgba(0, 31, 255, 0.8) ;
  }
 
+
+ /* 
+===============
+INNER GRID STYLING 
+===============
+ */
+
  .inner-grid {
-    grid-area: alias-innergrid;
-    background: rgba(0, 31, 255, 0.2) ;
+   overflow-y: scroll;
+   display: grid;
+   grid-area: alias-innergrid;
+   background: rgba(0, 31, 255, 0.2) ;
+   grid-template-rows: 1fr auto 60px;
+   grid-template-columns: 1fr;
+   grid-template-areas:
+      "alias-main alias-main"
+      "alias-aside alias-aside"
+      "alias-footer alias-footer"
+    ;
+}
+
+main {
+   grid-area: alias-main;
+   background: rgba(255, 122, 0) ;
+}
+
+aside {
+   grid-area: alias-aside;
+   background: rgba(255, 122, 0, 0.4) ;
+}
+
+footer {
+   grid-area: alias-footer;
+}
+
+ /* 
+===============
+HEADER STYLES 
+===============
+ */
+
+ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
  }
+
+ .left-header {
+    display: flex;
+    align-items: center;
+ }
+
+ .fa-bars {
+     margin-right: 10px;
+     cursor: pointer;
+     transition: all .2s;
+ }
+
+ .fa-bars:hover {
+    opacity: .8;
+ }
+
+ .right-header {
+    display: flex;
+ }
+
+ .header-links {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .header-links i {
+    font-size: .8rem;
+ }
+
+
 
  /* 
 ===============
 BREAKPOINTS 
 ===============
  */
+
+ @media (min-width: 576px) {
+   nav {
+      display: block !important;
+   }
+   .outer-grid {
+      grid-template-areas: 
+      "alias-header alias-header"
+      "alias-nav alias-innergrid"
+      ;
+   }
+
+   .fa-bars {
+      display: none;
+   }
+ }
+
+ @media (min-width: 992px) {
+    .inner-grid {
+      grid-template-rows: 1fr 60px;
+      grid-template-columns: minmax(auto, 700px) 1fr;
+      grid-template-areas:
+         "alias-main alias-aside"
+         "alias-footer alias-footer"
+       ;
+    }
+}
+
+@media (min-width: 1360px) {
+    header {
+       display: grid !important;
+       grid-template-columns: 1fr 950px 1fr;
+    }
+}
