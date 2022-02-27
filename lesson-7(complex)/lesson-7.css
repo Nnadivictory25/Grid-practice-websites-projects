@@ -12,9 +12,12 @@ html {
 }
 
 header,
-footer,
-a {
+footer {
    background-color: #1e4040;
+   color: #71dd9e;
+}
+
+a {
    color: #71dd9e;
 }
 
@@ -52,7 +55,7 @@ CSS STYLES (OUTER GRID STYLING)
 
  nav {
     grid-area: alias-nav;
-    background: rgba(0, 31, 255, 0.8) ;
+    background: #fff;
  }
 
 
@@ -133,6 +136,36 @@ HEADER STYLES
     font-size: .8rem;
  }
 
+  /* 
+===============
+NAV-BAR STYLES
+===============
+ */
+ nav {
+    padding-top: 20px;
+ }
+ .nav-link {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   cursor: pointer;
+   transition: all .2s;
+   color: #1e4040;
+   margin-top: 15px;
+}
+
+.nav-link:hover {
+   opacity: .8;
+}
+
+.nav-link a {
+   color: #1e4040;
+   text-decoration: none;
+}
+
+
+
+
 
 
  /* 
@@ -169,8 +202,34 @@ BREAKPOINTS
 }
 
 @media (min-width: 1360px) {
+
+   .outer-grid{
+      display: grid;
+      grid-template-columns: 1fr 950px 1fr;
+      grid-template-areas:
+       "alias-header alias-header alias-header"
+       "alias-nav alias-innergrid alias-innergrid"
+      ;
+   }
     header {
        display: grid !important;
        grid-template-columns: 1fr 950px 1fr;
+       grid-template-areas: 
+       "alias-lh alias-rh"
+        ;
+    }
+    .left-header {
+      grid-area: alias-lh;
+      justify-self: end;
+    }
+    .right-header {
+      grid-area: alias-rh;
+      justify-self: end;
+    }
+    nav {
+       display: flex !important;
+       flex-direction: column;
+       align-items: flex-end;
+       padding-right: 20px;
     }
 }
